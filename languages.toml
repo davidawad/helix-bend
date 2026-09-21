@@ -1,0 +1,24 @@
+# Bend 2 in Helix. Append (or merge) this into your Helix
+# languages.toml -- on macOS/Linux that is
+# $XDG_CONFIG_HOME/helix/languages.toml, default ~/.config/helix/languages.toml.
+#
+# Two fields are load-bearing:
+#   * "name" under [[grammar]] must be "bend2", not "bend". It is the
+#     tree-sitter language name the grammar registers itself as, and Helix
+#     compiles assuming the symbol tree_sitter_<name>. The *language* is still
+#     called "bend"; the `grammar = "bend2"` field is what bridges them.
+#   * "rev" is pinned on purpose. An unpinned grammar means a later
+#     `hx --grammar fetch` can silently change how your files highlight.
+
+[[language]]
+name = "bend"
+scope = "source.bend"
+injection-regex = "bend"
+file-types = ["bend"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+grammar = "bend2"
+
+[[grammar]]
+name = "bend2"
+source = { git = "https://github.com/davidawad/tree-sitter-bend2", rev = "e25608da7574a221827766847ed9366f8957fe18" }

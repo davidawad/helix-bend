@@ -1,0 +1,4 @@
+# Nothing here is generated at build time -- languages.toml, the query and
+# install.sh are all tracked. Keep it that way: a committed copy of anything
+# Helix generates is a copy that drifts.
+.DS_Store
