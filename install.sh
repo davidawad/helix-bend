@@ -16,7 +16,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HELIX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/helix"
 RUNTIME="$HELIX_CONFIG/runtime"
 GRAMMAR_REPO="https://github.com/davidawad/tree-sitter-bend2"
-GRAMMAR_REV="e25608da7574a221827766847ed9366f8957fe18"
+GRAMMAR_REV="8ad225d157f7409b59c995a11a86908123b9b20c"
 
 if ! command -v hx >/dev/null 2>&1; then
   echo "install: the 'hx' binary is not on PATH." >&2

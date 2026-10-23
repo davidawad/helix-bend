@@ -67,6 +67,19 @@
 (constructor_expression name: (_) @constructor)
 (constructor_pattern name: (_) @constructor)
 
+; Call syntax: since types are terms, `IO(Unit)` and `f(x)` are both
+; call_expression; the uppercase-identifier rule below recolors type-like
+; callees as types.
+(call_expression function: (identifier) @function.call)
+(call_expression function: (qualified_identifier (identifier) @function.call .))
+(gpu_call_expression function: (identifier) @function.call)
+(type_application name: (identifier) @type)
+(type_application name: (qualified_identifier (identifier) @type .))
+
+(relative_path) @string.special.path
+(package_path) @string.special.path
+(hash_path) @string.special.path
+
 (parameter name: (identifier) @variable.parameter)
 (lambda_expression param: (identifier) @variable.parameter)
 
@@ -115,6 +128,8 @@
   "~"
   "!"
   "@"
+  "^"
+  "?"
 ] @operator
 
 (reflexivity) @operator
